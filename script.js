@@ -1,26 +1,17 @@
 $(document).ready(readyNow);
 
 //Variables
+//create empty array to take in each employee monthly salary
+let monthlyCosts = [];
+
 
 function readyNow(){
-    console.log('huhu');
     addEventHandlers();
 }
 
-//Class Employee
-class Employee{
-    constructor(firstNameVal, lastNameVal, employeeIDVal, jobTitleVal, annualSalaryVal){
-        this.firstNameVal = firstNameVal;
-        this.lastNameVal = lastNameVal;
-        this.employeeIDVal = employeeIDVal;
-        this.jobTitleVal = jobTitleVal;
-        this.annualSalaryVal = annualSalaryVal;
-    }
-}
+// create functionality on submit button click
 function addEventHandlers(){
-
     $('#submitButton').on('click', handleSubmit);
-    //append row to DOM
 }
 
 function handleSubmit(){
@@ -29,7 +20,8 @@ function handleSubmit(){
     let lastNameVal = $('#lastName').val();
     let employeeIDVal = $('#employeeID').val();
     let jobTitleVal = $('#jobTitle').val();
-    let annualSalaryVal = $('#annualSalary').val();   
+    let annualSalaryVal = $('#annualSalary').val();
+    calcMonthlyCosts();   
     addRow(firstNameVal, lastNameVal, employeeIDVal, jobTitleVal, annualSalaryVal)
 }
 
@@ -41,10 +33,41 @@ function addRow(firstNameVal, lastNameVal, employeeIDVal, jobTitleVal, annualSal
     $row.append('<td>' + employeeIDVal + '</td>');
     $row.append('<td>' + jobTitleVal + '</td>');
     $row.append('<td>' + annualSalaryVal + '</td>');
+    //append row to DOM
     $('#employeeTable').append($row)
+    // Empty out the inputs
     $('#firstName').val('');
     $('#lastName').val('');
     $('#employeeID').val('');
     $('#jobTitle').val('');
     $('#annualSalary').val('');
+}
+
+//Calculate monthly costs
+function calcMonthlyCosts(){
+    //take in employee annual and divide by 12
+    let empCost = $('#annualSalary').val();
+    //change annual salary from a string to a number
+    let var1 = parseInt(empCost);
+    // divide result (annual salary) by twelve 
+    //to result in monthly salary, rounded up to nearest dollar
+    let empCost2 = Math.ceil(var1/12);
+    //append monthly salary to array
+    monthlyCosts.push(empCost2);
+    //add array values
+    let costArrayVal = 0;
+    for (let i = 0; i < monthlyCosts.length; i++){
+        costArrayVal += parseInt(monthlyCosts[i]);
+    }
+    reportMonthlyCosts(costArrayVal);
+    console.log(costArrayVal);
+    
+}
+
+function reportMonthlyCosts(costArrayVal){
+     //append total to #costPerMonth
+    $('#costPerMonth').text('Monthly Costs: $' + costArrayVal.toFixed(2));
+    if (costArrayVal > 20000.00){
+        document.getElementById("costPerMonth").classList.add("overBudget");
+    }
 }
