@@ -1,9 +1,54 @@
 body{
-    background-color: cadetblue;
+    color: rgb(23, 0, 78);
+    background-color: lightblue;
+}
+
+button{
+    box-shadow: 5px 5px 5px grey;
+    margin: 3px;
+}
+
+h2, h4{
+    color: rgb(23, 0, 78);
+    -webkit-text-stroke-color: rgb(84, 63, 133);
+    -webkit-text-stroke-width: 1px;
+    text-shadow: 2px 2px 4px rgb(23, 0, 78); 
 }
 
 h5{
     float: right;
+}
+
+header{
+    color: lightblue;
+    background-color: rgb(93, 93, 133);
+    text-align: center;
+    box-shadow: 10px 10px 5px grey;
+    -webkit-text-stroke-color: rgb(230, 230, 230);
+    -webkit-text-stroke-width: 1px;
+    text-shadow: 2.5px 2.5px 3px rgb(71, 71, 71), 1px 1px 10px white;
+}
+
+input{
+    border-style: inset; 
+    border-width: 2px;
+    -webkit-box-shadow: inset 2px 2px 2px 0px #dddddd;
+}
+
+thead{
+    color:  rgb(93, 93, 133);
+    background-color: skyblue;
+    box-shadow: 10px 10px 5px grey;
+    
+}
+
+#mainField{
+    margin: 30px;
+}
+
+#pageHeader{
+    font-size: 3em;
+    margin: 30px;
 }
 
 .overBudget{

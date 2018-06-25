@@ -3,7 +3,18 @@ $(document).ready(readyNow);
 //Variables
 //create empty array to take in each employee monthly salary
 let monthlyCosts = [];
+let employeeList = [];
 
+// create employee class
+class Employee{
+    constructor(firstName, lastName, employeeID, jobTitle, annualSalary){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employeeID = employeeID;
+        this.jobTitle = jobTitle;
+        this.annualSalary = annualSalary;
+    }
+}
 
 function readyNow(){
     addEventHandlers();
@@ -12,6 +23,7 @@ function readyNow(){
 // create functionality on submit button click
 function addEventHandlers(){
     $('#submitButton').on('click', handleSubmit);
+    $('#employeeTable').on('click', '#deleteButton', handleDelete);
 }
 
 function handleSubmit(){
@@ -27,12 +39,13 @@ function handleSubmit(){
 
 function addRow(firstNameVal, lastNameVal, employeeIDVal, jobTitleVal, annualSalaryVal){
     //create row in memory
-    let $row = $('<tr></tr>');
+    let $row = $('<tr id="empRow"></tr>');
     $row.append('<td>' + firstNameVal + '</td>');
     $row.append('<td>' + lastNameVal + '</td>');
     $row.append('<td>' + employeeIDVal + '</td>');
     $row.append('<td>' + jobTitleVal + '</td>');
     $row.append('<td>' + annualSalaryVal + '</td>');
+    $row.append('<button id="deleteButton">Delete</button>')
     //append row to DOM
     $('#employeeTable').append($row)
     // Empty out the inputs
@@ -56,7 +69,7 @@ function calcMonthlyCosts(){
     monthlyCosts.push(empCost2);
     //add array values
     let costArrayVal = 0;
-    for (let i = 0; i < monthlyCosts.length; i++){
+    for (let i=0; i < monthlyCosts.length; i++){
         costArrayVal += parseInt(monthlyCosts[i]);
     }
     reportMonthlyCosts(costArrayVal);
@@ -70,4 +83,10 @@ function reportMonthlyCosts(costArrayVal){
     if (costArrayVal > 20000.00){
         document.getElementById("costPerMonth").classList.add("overBudget");
     }
+}
+
+function handleDelete(){
+
+    $(this).closest('tr').remove();
+
 }

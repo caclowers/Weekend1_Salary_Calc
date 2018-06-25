@@ -11,10 +11,10 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <header id="titleHeader">Casey Built You A Greater... Salary Calculator</header>
+    <header id="pageHeader">Casey Built You A Greater... Salary Calculator</header>
     <div id="mainField">
         <h2>Add Employee</h2>
-        <div id="formField">
+        <div class="form-group" id="formField">
             <input id="firstName" placeholder="First Name"/>
             <input id="lastName" placeholder="Last Name"/>
             <input id="employeeID" placeholder="ID Number"/>
@@ -23,19 +23,20 @@
             <button id="submitButton">Submit</button>
         </div>
         <div id="tableField">
-            <h2>Employees</h2>
-            <table class="table table-hover table-bordered" id="employeeTable">
+            <h4>Employee List</h4>
+            <table class="table table-hover table-striped table-bordered table-sm" id="employeeTable">
                 <thead>
                     <th id="firstNameHeader">First Name</th>
                     <th id="lastNameHeader">Last Name</th>
                     <th id="idHeader">Employee ID#</th>
                     <th id="titleHeader">Title</th>
                     <th id="annualSalaryHeader">Annual Salary</th>
+                    <th id="deleteEmployee">Delete</th>
                 </thead>
                 <tbody id="tableBody"></tbody>
             </table>
             <div id="monthlyCostsField">
-                <h5 id="costPerMonth">Monthly Costs:</h5>
+                <h5 id="costPerMonth">Monthly Costs: $0.00</h5>
             </div>
         </div>
     </div>
