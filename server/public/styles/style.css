@@ -5,7 +5,7 @@ body{
 
 button{
     box-shadow: 5px 5px 5px grey;
-    margin: 3px;
+    margin: 5px;
 }
 
 h2, h4{
@@ -39,7 +39,6 @@ thead{
     color:  rgb(93, 93, 133);
     background-color: skyblue;
     box-shadow: 10px 10px 5px grey;
-    
 }
 
 #mainField{
@@ -53,4 +52,5 @@ thead{
 
 .overBudget{
     background-color: red;
+    box-shadow: 10px 10px 5px grey;
 }

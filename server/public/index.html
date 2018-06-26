@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Casey Built You A Greater... Salary Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script src="jquery-3.3.1.min.js"></script>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="styles/style.css" />
+    <script src="vendors/jquery-3.3.1.min.js"></script>
+    <script src="scripts/client.js"></script>
 </head>
+
 <body>
-    <header id="pageHeader">Casey Built You A Greater... Salary Calculator</header>
+    <header id="pageHeader">Generic Conglomerate Industries - Salary Calculator</header>
     <div id="mainField">
         <h2>Add Employee</h2>
         <div class="form-group" id="formField">
-            <input id="firstName" placeholder="First Name"/>
-            <input id="lastName" placeholder="Last Name"/>
-            <input id="employeeID" placeholder="ID Number"/>
-            <input id="jobTitle" placeholder="Job Title"/>
-            <input id="annualSalary" type="number" placeholder="Annual Salary"/>
+            <input id="firstName" placeholder="First Name" />
+            <input id="lastName" placeholder="Last Name" />
+            <input id="employeeID" type="number" placeholder="ID Number" />
+            <input id="jobTitle" placeholder="Job Title" />
+            <input id="annualSalary" type="number" placeholder="Annual Salary" />
             <button id="submitButton">Submit</button>
         </div>
         <div id="tableField">
@@ -36,9 +38,10 @@
                 <tbody id="tableBody"></tbody>
             </table>
             <div id="monthlyCostsField">
-                <h5 id="costPerMonth">Monthly Costs: $0.00</h5>
+                <h5>Monthly Costs: $ <span id="costPerMonth">0.00</span></h5>
             </div>
         </div>
     </div>
 </body>
+
 </html>
